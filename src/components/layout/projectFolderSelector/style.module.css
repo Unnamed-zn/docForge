@@ -1,0 +1,7 @@
+.screen {
+    @apply h-screen w-screen flex flex-col justify-center;
+}
+
+.title {
+    @apply font-primary text-2xl;
+}
