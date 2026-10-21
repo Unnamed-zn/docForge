@@ -1,3 +1,6 @@
+import { FolderSelectorPage } from '../components/layout/folderSelector';
+import { SelectFolderButton } from '../components/buttons';
+
 export function Home() {
     return (
         <>
@@ -7,8 +10,9 @@ export function Home() {
 
 export function ProjectFolderSelector() {
     return (
-        <>
-        </>
+        <FolderSelectorPage>
+            <SelectFolderButton/>
+        </FolderSelectorPage>
     );
 }
 
