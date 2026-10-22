@@ -2,17 +2,12 @@
 @import "tailwindcss";
 
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
     --font-primary: 'Neuton', 'Bona Nova', 'Rosarivo', 'Alegreya', 'Ovo', 'Ancizar Serif', serif;
-}
 
-:root {
-    --main-yellow: rgb(180, 160, 105);
-    --background: rgb(255, 255, 255);
-}
-
-
-:root [data-theme="dark"] {
-    --main-yellow: rgb(226, 204, 143);
-    --background: rgb(32, 37, 48);
+    --color-main-yellow: rgb(226, 204, 143);
+    --color-main-white: rgb(255, 255, 245);
+    --color-main-dark: rgb(32, 37, 48);
 }

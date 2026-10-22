@@ -3,7 +3,6 @@ import { Home, Pages, Theme, Assets, Output, Config, ProjectFolderSelector } fro
 import './style/global.css';
 
 function App() {
-
   return (
     <BrowserRouter>
       <Routes>
