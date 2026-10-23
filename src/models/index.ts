@@ -1,39 +1,36 @@
-declare function saveInIndexedDB(chave: string, valor: FileSystemDirectoryHandle): Promise<void>;
-declare function getFromIndexedDB(chave: string): Promise<FileSystemDirectoryHandle | null>;
+import type { DocForgeApi } from "../electron";
 
-export async function selectAndLoadFolder(): Promise<FileSystemDirectoryHandle | undefined> {
+export const isDesktop = typeof window !== 'undefined' && !!window.docforge;
+
+export function api(): DocForgeApi {
+    if (!window.docforge) {
+        throw new Error('Esta função só funciona no nosso app para desktop.')
+    }
+    return window.docforge;
+}
+
+export async function selectAndLoadFolder(): Promise<string | null> {
     try {
-        const folderHandle: FileSystemDirectoryHandle = await window.showDirectoryPicker({
-            mode: 'readwrite'
-        });
-
-        await saveInIndexedDB('projectFolder', folderHandle);
-
-        return folderHandle;
+        return await api().selectFolder();
     } catch (error) {
         console.error('Erro na seleção do projeto: ', error);
-    }
-} 
-
-export async function recoverProjectFolder(): Promise<FileSystemDirectoryHandle | null> {
-    const folderHandle = await getFromIndexedDB('projectFolder');
-    
-    if (!folderHandle) {
-        alert('Nenhuma pasta salva anteriormente');
         return null;
     }
+}
 
-    const options: FileSystemHandlePermissionDescriptor = { mode: 'readwrite' };
-    let permission = await folderHandle.requestPermission(options);
-
-    if (permission!== 'granted') {
-        permission = await folderHandle.requestPermission(options);
-    }
-    
-    if (permission==='granted') {
-        return folderHandle;
-    } else {
-        alert("Acesso negado pelo usuário.");
+export async function recoverProjectFolder(): Promise<string | null> {
+    try {
+        return await api().getSavedFolder();
+    } catch (error) {
+        console.error('Erro ao recuperar o diretório do projeto: ', error);
         return null;
+    }
+}
+
+export async function maximizeScreen() {
+    try {
+        await api().maximizeScreen();
+    } catch (error) {
+        console.error('Erro ao maximizar a tela: ',error);
     }
 }

@@ -14,18 +14,30 @@
   "license": "ISC",
   "author": "",
   "type": "module",
-  "main": "main.js",
+  "main": "electron/main.cjs",
   "scripts": {
-    "start": "electron .",
     "dev": "vite",
+    "electron:dev": "concurrently -k \"vite\" \"wait-on tcp:5173 && cross-env ELECTRON_DEV_URL=http://localhost:5173 electron .\"",
     "build": "tsc -b && vite build",
+    "start": "npm run build && electron .",
+    "dist": "npm run build && electron-builder",
     "lint": "eslint .",
     "preview": "vite preview"
+  },
+  "build": {
+    "appId": "com.docforge.app",
+    "productName": "DocForge",
+    "files": [
+      "dist/**",
+      "electron/**"
+    ],
+    "directories": {
+      "output": "release"
+    }
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "chokidar": "^6.0.0",
-    "electron": "^44.9.1",
     "jspdf": "^4.2.1",
     "lucide-react": "^1.59.0",
     "react": "^19.3.1",
@@ -40,6 +52,9 @@
     "@types/wicg-file-system-access": "^2023.10.7",
     "@vitejs/plugin-react": "^6.1.2",
     "autoprefixer": "^10.6.1",
+    "concurrently": "^10.0.6",
+    "cross-env": "^10.1.0",
+    "electron-builder": "^26.15.3",
     "eslint": "^10.13.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
@@ -48,6 +63,8 @@
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.0",
     "typescript-eslint": "^8.71.2",
-    "vite": "^8.3.4"
+    "vite": "^8.3.4",
+    "electron": "^44.9.1",
+    "wait-on": "^9.5.1"
   }
 }
