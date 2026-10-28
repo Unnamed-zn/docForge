@@ -1,14 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import { selectAndLoadFolder, maximizeScreen } from '@/models/index';
 
 export function SelectFolderButton() {
     const navigate = useNavigate();
 
     async function handleClick() {
-        const folder = await selectAndLoadFolder();
+        const selectAndLoadFolder = ()=> true;
+
+        const folder = selectAndLoadFolder();
         if (folder) {
             navigate('/home');
-            maximizeScreen();
         }
     }
 

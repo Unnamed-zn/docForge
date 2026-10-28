@@ -1,12 +1,18 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
-import { Home, Pages, Theme, Assets, Output, Config, ProjectFolderSelector } from './pages';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './style/global.css';
+import { ProjectFolderSelector } from './pages/folderSelectorPage';
+import { Home } from './pages/home';
+import { Pages } from './pages/pages';
+import { Theme } from './pages/theme';
+import { Assets } from './pages/assets';
+import { Output } from './pages/output';
+import { Config } from './pages/config';
 
 
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<ProjectFolderSelector />} />
         <Route path="/home" element={<Home />} />
@@ -16,7 +22,7 @@ function App() {
         <Route path="/output" element={<Output />} />
         <Route path="/config" element={<Config />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

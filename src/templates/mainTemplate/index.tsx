@@ -1,7 +1,10 @@
+import { Sidebar } from "@/components/layout/sidebar";
+
+
 export function MainTemplate() {
     return (
-        <body className="grid grid-cols-[12vw_1f] w-screen h-[100dvh] bg-">
-            
+        <body className="grid grid-cols-[15vw_1fr] w-screen h-[100dvh] bg-main-white dark:bg-main-black">
+            <Sidebar />
         </body>
     );
 }
