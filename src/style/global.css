@@ -2,14 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
     --font-primary: 'Neuton', 'Bona Nova', 'Rosarivo', 'Alegreya', 'Ovo', 'Ancizar Serif', serif;
     --font-layout: 'Saira', sans-serif;
-
-    --color-main-yellow: rgb(226, 204, 143);
-    --color-main-white: rgb(255, 255, 245);
-    --color-main-dark: rgb(32, 37, 48);
 }

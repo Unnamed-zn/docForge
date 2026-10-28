@@ -4,7 +4,7 @@ type props = {
 
 export function Sidebar({children}:props) {
     return (
-        <div className="fixed flex flex-col gap-3 top-12 p-4 left-0 w-1/6 h-full">
+        <div className="relative flex flex-col gap-3 p-4 w-60 h-full">
             {children}
         </div>
     )

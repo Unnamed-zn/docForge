@@ -2,6 +2,8 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Home, Pages, Theme, Assets, Output, Config, ProjectFolderSelector } from './pages';
 import './style/global.css';
 
+
+
 function App() {
   return (
     <HashRouter>
