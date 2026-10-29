@@ -9,7 +9,7 @@
     --font-layout: 'Saira', sans-serif;
 
     --color-main-white: oklch(92.9% 0.013 255.508); /* slate-200 */
-    --color-main-black: oklch(21.8% 0.008 223.9); /* mist-900 */
+    --color-main-black: oklch(20.66% 0.0101 248.31); /* neutral-900 */
     --color-main-yellow: oklch(90.5% 0.182 98.111); /* yellow-300 */
     --color-light-yellow: oklch(94.5% 0.129 101.54); /* yellow-200 */
 }

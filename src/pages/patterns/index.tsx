@@ -1,6 +1,6 @@
 import { MainTemplate } from "@/templates/mainTemplate";
 
-export function Theme() {
+export function Patterns() {
     return (
         <MainTemplate />
     );
