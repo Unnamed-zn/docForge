@@ -1,7 +1,8 @@
+import { style } from './style';
 import type { LucideIcon } from 'lucide-react';
 
 type props = {
-    Icon: LucideIcon
+    Icon: LucideIcon;
     title: string;
     description: string;
     nextSteps: string;
@@ -9,10 +10,10 @@ type props = {
 
 export function SecondaryContentTemplate({ Icon, title, description, nextSteps }: props) {
     return (
-        <div className="h-screen w-screen flex flex-col justify-center items-center bg-main-white dark:bg-main-black">
-            <div className='flex flex-col items-center'>
-                <Icon className="size-16 text-main-black dark:text-main-white"/>
-                <h1 className="font-primary font-bold text-main-black dark:text-main-white text-5xl my-2">
+        <div className={style.screen}>
+            <div className={style.content}>
+                <Icon className={style.icon}/>
+                <h1 className={style.title}>
                     {title}
                 </h1>
 

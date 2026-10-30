@@ -1,10 +1,15 @@
+import { style } from './style';
 import { Sidebar } from "@/components/layout/sidebar";
 
+type props = {
+    PageList?: React.ReactNode;
+}
 
-export function MainTemplate() {
+export function MainTemplate({ PageList }: props) {
     return (
-        <main className="grid grid-cols-[16vw_1fr] w-screen h-dvh bg-main-white dark:bg-main-black">
+        <main className={style.main}>
             <Sidebar />
+            {PageList&& PageList}
         </main>
     );
 }
