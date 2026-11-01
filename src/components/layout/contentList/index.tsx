@@ -1,6 +1,6 @@
 import { style } from "./style";
 
-export function PageList() {
+export function ContentList() {
     return (
         <nav className={style.nav}>
             

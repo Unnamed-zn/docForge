@@ -5,10 +5,11 @@ type props = {
     Icon: LucideIcon;
     title: string;
     description: string;
-    nextSteps: string;
+    nextSteps?: string;
+    Buttons?: React.ReactNode;
 };
 
-export function SecondaryContentTemplate({ Icon, title, description, nextSteps }: props) {
+export function SecondaryContentTemplate({ Icon, title, description, nextSteps, Buttons }: props) {
     return (
         <div className={style.screen}>
             <div className={style.content}>
@@ -17,13 +18,14 @@ export function SecondaryContentTemplate({ Icon, title, description, nextSteps }
                     {title}
                 </h1>
 
-                <p className="font-primary text-main-black dark:text-main-white w-3/5 text-center text-xl md:text-3xl text-primary-text">
+                <p className={style.description}>
                     {description}
                 </p>
 
-                <p className='font-primary text-md md:text-xl text-main-black dark:text-main-white w-4/5 lg:w-110 text-center my-4'>
+                <p className={style.nextSteps}>
                     {nextSteps}
                 </p>
+                {Buttons&& Buttons}
             </div>
         </div>
     )

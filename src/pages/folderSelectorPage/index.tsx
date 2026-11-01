@@ -1,3 +1,5 @@
+import { CreateProjectButton } from "@/components/common/buttons/createProjectButton";
+import { OpenProjectButton } from "@/components/common/buttons/openProjectButton";
 import { SecondaryContentTemplate } from "@/templates/secondaryContentTemplate";
 import { FileText } from "lucide-react";
 
@@ -6,8 +8,11 @@ export function ProjectFolderSelector() {
         <SecondaryContentTemplate
             Icon={FileText}
             title="DocForge"
-            description="Onde ideias tomam forma sem complicações."
-            nextSteps="Escolha uma pasta para armazenar gerenciar seus projetos. Não se assuste, a escolha pode ser alterada."
+            description="Onde as suas ideias tomam forma sem complicações."
+            Buttons={<div className="flex flex-row gap-4">
+                <OpenProjectButton/>
+                <CreateProjectButton/>
+            </div>}
         />
     );
 }
